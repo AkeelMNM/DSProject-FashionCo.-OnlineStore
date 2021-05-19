@@ -1,0 +1,107 @@
+/*
+**************************************************************
+  @author : M.N.M Akeel
+  Registration Number : IT19153414
+************************************************************
+*/
+
+.form-style-userPro{
+    max-width: 500px;
+    padding: 10px 20px;
+    background: #f2f2f2;
+    padding: 20px;
+    margin: 15px auto 0 30px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+.form-style-userPro fieldset{
+    border: none;
+}
+.form-style-userPro legend {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+.form-style-userPro label {
+    display: block;
+    margin-bottom: 8px;
+}
+.form-style-userPro input[type="text"],
+.form-style-userPro input[type="password"],
+.form-style-userPro select {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    outline: 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background: #fff;/*#e8eeef;*/
+    color:#8a97a0;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin: 0 0 30px;
+}
+.form-style-userPro input[type="text"]:focus,
+.form-style-userPro input[type="password"]:focus,
+.form-style-userPro select:focus{
+    background: #e8eeef;
+}
+
+.form-style-userPro input[type="submit"],
+.form-style-userPro input[type="button"]
+{
+    background-color:tomato;
+    border: none;
+    color: white;
+    padding: 7px ;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s;
+    cursor:pointer;
+    width:150px;
+    align:center;
+}
+.form-style-userPro input[type="submit"]:hover,
+.form-style-userPro input[type="button"]:hover {
+    background: #434343;
+}
+
+#tableSt {
+    border-collapse: collapse;
+    width: 30%;
+    margin-left:30px;
+    margin-top: 40px;
+}
+
+.tdSt {
+    text-align: left;
+    padding: 12px;
+}
+.thSt{
+    text-align: left;
+    padding: 6px;
+    background-color: lightskyblue;
+    color: white;
+}
+
+.trSt:nth-child(odd){background-color: #f2f2f2}
+
+.t1{
+    border-collapse: collapse;
+    width: 12%;
+    margin-left:670px;
+}
+
+#usTitle{
+    display: inline-block;
+    color: black;
+    margin-top: 170px;
+    font-size: 28px;
+    margin-left: 45%;
+    font-family: 'Times New Roman';
+    text-decoration:underline;
+}
+
