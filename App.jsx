@@ -27,8 +27,8 @@ class App extends React.Component{
                 <Route path="/UserProfile" component={UserProfile} />
                 <Route path="/AddProducts" component={CreateProductComponent} />
                 <Route path="/ListProducts" component={ListProductsComponent} />
-                <Route path="/ViewProducts" component={ViewProductComponent} />
-                <Route path="/UpdateProducts" component={UpdateProductComponent} />
+                <Route path="/ViewProducts/:id" component={ViewProductComponent} />
+                <Route path="/UpdateProducts/:id" component={UpdateProductComponent} />
             </Switch>
             <Footer/>
         </Router>

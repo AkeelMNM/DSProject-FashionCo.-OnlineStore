@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ProductService from '../../service/ProductService';
 import '../../styles/seller/Products.css';
+import Cookies from "universal-cookie/es6";
+import NavMenu from "../NavMenu";
 
 class ViewProductComponent extends Component {
 
@@ -22,54 +24,51 @@ class ViewProductComponent extends Component {
         }
     
     render() {
-        return (
-            <div>
-            <br></br>
-            <div className = "card col-md-6 offset-md-3">
+        const cookies = new Cookies();
+        return <div>
+            <NavMenu userType={cookies.get('userType')}/>
+            <div className = "card2 col-md-6 offset-md-3">
                 <h3 className = "text-center"> View Product Details</h3>
                 <div className = "card-body">
-                    <div className = "row">
-                        <label> Product Name: </label>
-                        <div> { this.state.products.productName}</div>
-                    </div>
+                        <div className = "row">
+                            <label> Product Name: </label>
+                            <div> { this.state.products.productName}</div>
+                        </div>
 
-                    <div className = "row">
-                        <label>Product Brand :</label>
-                        <div> { this.state.products.productBrand }</div>
-                    </div>
+                        <div className = "row">
+                            <label>Product Brand :</label>
+                            <div> { this.state.products.productBrand }</div>
+                        </div>
 
-                    <div className = "row">
-                        <label> Product Category :</label>
-                        <div> { this.state.products.productCategory }</div>
-                    </div>
+                        <div className = "row">
+                            <label> Product Category :</label>
+                            <div> { this.state.products.productCategory }</div>
+                        </div>
 
-                    <div className = "row">
-                        <label> Product Price : </label>
-                        <div> { this.state.products.productPrice }</div>
-                    </div>
+                        <div className = "row">
+                            <label> Product Price : </label>
+                            <div> { this.state.products.productPrice }</div>
+                        </div>
 
-                    <div className = "row">
-                        <label> Product Size :</label>
-                        <div> { this.state.products.productSize }</div>
-                    </div>
+                        <div className = "row">
+                            <label> Product Size :</label>
+                            <div> { this.state.products.productSize }</div>
+                        </div>
 
-                    <div className = "row">
-                        <label> Description :</label>
-                        <div> { this.state.products.discription}</div>
-                    </div>
+                        <div className = "row">
+                            <label> Description :</label>
+                            <div> { this.state.products.discription}</div>
+                        </div>
 
-                    <div className = "row">
-                    <label> Image :</label>
-                   
-                    <div> <img src={`data:image/jpg;base64,${this.state.products.image}`} id="sImage1" /></div>
+                        <div className = "row">
+                        <label> Image :</label>
+
+                        <div> <img src={`data:image/jpg;base64,${this.state.products.image}`} id="sImage1" /></div>
+                    </div>
                 </div>
-
-
-                </div>
-
             </div>
+                <div style={{marginTop:'68px'}}></div>
             </div>
-        );
     }
 }
 

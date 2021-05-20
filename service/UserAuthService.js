@@ -51,7 +51,7 @@ class UserAuthService{
     }
 
     getUserById(userID){
-        return axios.post(USER_AUTH_API_BASE_URL+'getUser/'+userID)
+        return axios.get(USER_AUTH_API_BASE_URL+'getUser/'+userID)
             .then(response =>{
                 if(response.status === 200){
                     return response;

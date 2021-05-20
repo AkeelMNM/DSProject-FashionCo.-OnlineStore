@@ -14,7 +14,6 @@ class ListProductsComponent extends Component {
             products:[] 
 
         }
-        this.addProduct=this.addProduct.bind(this);
         this.editProduct = this.editProduct.bind(this);
         this.deleteProduct = this.deleteProduct.bind(this);
       
@@ -37,14 +36,11 @@ class ListProductsComponent extends Component {
 
 
     componentDidMount(){
-        ProductService.getproducts().then((res) =>{
+        ProductService.getproducts().then(res =>{
             this.setState({products:res.data});
         });
     }   
 
-    addProduct(){
-          this.props.history.push('add-product/_add');
-    }
        
 
     render() {
@@ -93,6 +89,7 @@ class ListProductsComponent extends Component {
                     </table >
                 </div>
             </div>
+            <div style={{marginTop:'310px'}}></div>
         </div>
     }
 }

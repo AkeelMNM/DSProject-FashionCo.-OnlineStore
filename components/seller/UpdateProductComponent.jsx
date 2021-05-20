@@ -6,16 +6,14 @@ class UpdateProductComponent extends Component {
     constructor(props){
         super(props)
 
-        this.state={
-            id: this.props.match.params.id,
+        this.state = {
+            id:this.props.match.params.id,
             productName:'',
             productBrand:'',
             productCategory:'',
             productPrice:'',
             productSize:'',
-            discription:'',
-
-          
+            discription:''
         }
 
         this.updateProduct = this.updateProduct.bind(this);
@@ -28,7 +26,7 @@ class UpdateProductComponent extends Component {
     }
 
     componentDidMount(){
-        ProductService.getProducteById(this.state.id).then(res =>{
+        ProductService.getProducteById(this.state.id).then(res => {
             let product = res.data;
             this.setState({productName: product.productName,
                 productBrand: product.productBrand,
@@ -51,11 +49,10 @@ class UpdateProductComponent extends Component {
             productSize: this.state.productSize,
             discription: this.state.discription
         };
-            console.log('product => '+JSON.stringify(product));
-            console.log('id => ' + JSON.stringify(this.state.id));
-            ProductService.updatePRoduct(product, this.state.id).then( res => {
-                this.props.history.push('/ListProducts');
-            });
+
+        ProductService.updatePRoduct(product, this.state.id).then( res => {
+            this.props.history.push('/ListProducts');
+        });
         
     }
 
