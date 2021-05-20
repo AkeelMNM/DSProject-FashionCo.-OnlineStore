@@ -20,7 +20,7 @@ export default function ItemDisplay (props){
 
                     {
                         items.map(item => {
-                            return <ItemsList id={item.id.toString()} item={item}/>
+                            return <ItemsList id={item.itemId.toString()} item={item}/>
 
                         })
                     }

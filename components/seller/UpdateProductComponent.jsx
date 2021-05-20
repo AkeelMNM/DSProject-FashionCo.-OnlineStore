@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ProductService from '../services/ProductService';
+import ProductService from '../../service/ProductService';
+import '../../styles/seller/Products.css';
 
 class UpdateProductComponent extends Component {
     constructor(props){
@@ -27,7 +28,7 @@ class UpdateProductComponent extends Component {
     }
 
     componentDidMount(){
-        ProductService.getProducteById(this.state.id).then( (res) =>{
+        ProductService.getProducteById(this.state.id).then(res =>{
             let product = res.data;
             this.setState({productName: product.productName,
                 productBrand: product.productBrand,
@@ -36,25 +37,30 @@ class UpdateProductComponent extends Component {
                 productSize : product.productSize,
                 discription : product.discription
 
-
             });
         });
     }
 
     updateProduct(e){
-
         e.preventDefault();
-        let product ={productName: this.state.productName,productBrand: this.state.productBrand,productCategory: this.state.productCategory,productPrice: this.state.productPrice,productSize: this.state.productSize,discription: this.state.discription};
+        let product ={
+            productName: this.state.productName,
+            productBrand: this.state.productBrand,
+            productCategory: this.state.productCategory,
+            productPrice: this.state.productPrice,
+            productSize: this.state.productSize,
+            discription: this.state.discription
+        };
             console.log('product => '+JSON.stringify(product));
             console.log('id => ' + JSON.stringify(this.state.id));
             ProductService.updatePRoduct(product, this.state.id).then( res => {
-                this.props.history.push('/');
+                this.props.history.push('/ListProducts');
             });
         
     }
 
     cancel(){
-        this.props.history.push('/products');
+        this.props.history.push('/ListProducts');
     }
 
     render() {

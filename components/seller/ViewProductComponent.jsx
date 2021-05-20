@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProductService from '../../service/ProductService';
+import '../../styles/seller/Products.css';
 
 class ViewProductComponent extends Component {
 

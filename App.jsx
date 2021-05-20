@@ -9,6 +9,7 @@ import UserProfile from "./components/UserProfile";
 import CreateProductComponent from "./components/seller/CreateProductComponent";
 import ViewProductComponent from "./components/seller/ViewProductComponent";
 import ListProductsComponent from "./components/seller/ListProductsComponent";
+import UpdateProductComponent from "./components/seller/UpdateProductComponent";
 
 
 class App extends React.Component{
@@ -27,6 +28,7 @@ class App extends React.Component{
                 <Route path="/AddProducts" component={CreateProductComponent} />
                 <Route path="/ListProducts" component={ListProductsComponent} />
                 <Route path="/ViewProducts" component={ViewProductComponent} />
+                <Route path="/UpdateProducts" component={UpdateProductComponent} />
             </Switch>
             <Footer/>
         </Router>

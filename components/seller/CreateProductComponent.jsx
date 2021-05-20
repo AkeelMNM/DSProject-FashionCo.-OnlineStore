@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProductService from '../../service/ProductService';
 import Cookies from "universal-cookie/es6";
 import NavMenu from "../NavMenu";
+import '../../styles/seller/Products.css';
 
 class CreateProductComponent extends Component {
     constructor(props){
@@ -33,19 +34,19 @@ class CreateProductComponent extends Component {
     saveProduct(e){
 
         e.preventDefault();
-        let product ={productName: this.state.productName,productBrand: this.state.productBrand,productCategory: this.state.productCategory,productPrice: this.state.productPrice,productSize: this.state.productSize,discription: this.state.discription,Image: this.state.Image};
-            console.log('product => '+JSON.stringify(product));
-            //step5
-            if(this.state.id === '_add'){
-                ProductService.createproduct(product).then(res =>{
-                    this.props.history.push('/');
-                });
-            }else{
-                ProductService.updatePRoduct(product, this.state.id).then( res => {
-                    this.props.history.push('/product');
-                    
-                });
-            }
+        let product = {
+            productName: this.state.productName,
+            productBrand: this.state.productBrand,
+            productCategory: this.state.productCategory,
+            productPrice: this.state.productPrice,
+            productSize: this.state.productSize,
+            discription: this.state.discription,
+            Image: this.state.Image
+        };
+
+        ProductService.createproduct(product).then(res =>{
+            this.props.history.push('/ListProducts');
+        });
 
     }
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProductService from '../../service/ProductService';
 import NavMenu from "../NavMenu";
 import Cookies from "universal-cookie/es6";
+import '../../styles/seller/Products.css';
 
 
 class ListProductsComponent extends Component {
@@ -24,45 +25,34 @@ class ListProductsComponent extends Component {
         ProductService.deleteProduct(id).then( res => {
             this.setState({products: this.state.products.filter(product => product.id !== id)});
         });
-
-
     }
 
     viewProduct(id){
-        this.props.history.push(`/view-product/${id}`);
+        this.props.history.push(`/ViewProducts/${id}`);
     }
 
     editProduct(id){
-        this.props.history.push(`/update-product/${id}`);
+        this.props.history.push(`/UpdateProducts/${id}`);
     }
 
 
     componentDidMount(){
-
         ProductService.getproducts().then((res) =>{
-
             this.setState({products:res.data});
         });
-
     }   
 
     addProduct(){
           this.props.history.push('add-product/_add');
-            
-        }
-
+    }
        
 
     render() {
         const cookies = new Cookies();
         return <div>
             <NavMenu userType={cookies.get('userType')}/>
-            <div>
-                <h2 className="text-center"> Products List </h2>   
-                    <div className= "row">
-                        <button className="btn btn-primary" onClick={this.addProduct}>Add Product</button>
-                    </div>
-                    <br></br>
+            <div id={'listDiv'}>
+                <h2 className="text-center"> Products List </h2>
                 <div className="row"> 
                     <table className="table table-striped table-bordered"> 
                         <thead> 
@@ -76,9 +66,7 @@ class ListProductsComponent extends Component {
                                   <th> Image</th>
                                 <th> Actions</th>
                             </tr>
-                        
                         </thead>
-
                         <tbody> 
                             {
                                     this.state.products.map(
@@ -99,16 +87,10 @@ class ListProductsComponent extends Component {
                                             </td>
                                         
                                         </tr>
-
-
                                     )
-                                
                             }
-                        
                         </tbody>
-                    
                     </table >
-
                 </div>
             </div>
         </div>

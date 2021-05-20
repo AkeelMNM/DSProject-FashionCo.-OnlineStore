@@ -14,25 +14,19 @@ import Cookies from "universal-cookie/es6";
 
 const items = [
     {
-        id:1,
+        itemId:1,
         name:'Shoe',
         unitPrice:500,
         qty:2,
         totalPrice:1000
     },
     {
-        id:2,
+        itemId:2,
         name:'Shirt',
         unitPrice:700,
         qty:5,
         totalPrice:3500
     },
-    // {
-    //     name:'Jeans',
-    //     unitPrice:700,
-    //     qty:5,
-    //     totalPrice:3500
-    // }
 ]
 
 class PaymentGateway extends React.Component{
@@ -40,8 +34,7 @@ class PaymentGateway extends React.Component{
         super(props);
 
         this.state = {
-            id:'mobile'/*this.props.payType*/,
-            method:false
+            payType:'card'
         }
 
     }
@@ -57,13 +50,13 @@ class PaymentGateway extends React.Component{
         if(typeof val === 'undefined'){
             this.props.history.push('/');
         }else{
-            if(this.state.id ==='mobile'){
-                this.setState({method:true});
-            }
-            else if(this.id === 'card'){
-                return;
-            }
+           return;
         }
+    }
+
+    onChange(event){
+        const { name, value } = event.target;
+        this.setState({ [name] : value });
     }
 
     render() {
@@ -72,8 +65,21 @@ class PaymentGateway extends React.Component{
             <NavMenu userType={cookies.get('userType')}/>
             <div className={'big-style-div'}>
                 <label id={'headLine'}>Payment Gateway</label><br/>
+                <div id={'radioDiv'}>
+                    <form>
+                    <label>Select Payment Type :</label>
+                    <input type={'radio'} name={'payType'} id={'payType'} value={'card'} checked={this.state.payType === 'card'}
+                           onChange={event => this.onChange(event)}/> Card Payment
+                    <input type={'radio'} name={'payType'} id={'payType'} value={'mobile'} checked={this.state.payType === 'mobile'}
+                           onChange={event => this.onChange(event)}/>Mobile Payment
+                    </form>
+                </div>
                 <div id={'div1'}>
-                    {this.state.method ? <MobilePayment/> : <CardPayment/>}
+                    {
+                        this.state.payType === 'mobile' ? <MobilePayment/> :
+                        this.state.payType === 'card' ? <CardPayment/>
+                        :<></>
+                    }
                 </div>
                 <div id={'div2'}>
                     <ItemDisplay items={items}/>
