@@ -1,0 +1,83 @@
+
+/*
+**************************************************************
+  @author : A.M Zumry
+  Registration Number : IT19175126
+************************************************************
+*/
+
+
+/*------------------------
+Transport Css
+------------------------*/
+
+.container{
+    margin-top: 170px;
+}
+
+.form-style-checkout{
+    max-width: 500px;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    padding: 20px;
+    background: #f4f7f8;
+    margin: 15px auto 10px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.form-style-checkout fieldset{
+    border: none;
+}
+
+.form-style-checkout legend {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+.form-style-checkout label {
+    display: block;
+    margin-bottom: 8px;
+}
+.form-style-checkout input[type="text"] {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    outline: 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background: #ffff;
+    color:#8a97a0;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin: 0 0 30px;
+}
+.form-style-checkout input[type="text"]:focus,
+.form-style-checkout select:focus{
+    background: #e8eeef;/*#d2d9dd;*/
+}
+.form-style-checkout select{
+    -webkit-appearance: menulist-button;
+    height:35px;
+}
+
+.form-style-checkout input[type="submit"] {
+    position: relative;
+    display: block;
+    text-align: center;
+    font-style: normal;
+    padding: 9px 29px 8px 29px;
+    color: #FFF;
+    background: #13A5D5;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid #13A5D5;
+    border-width: 1px 1px 3px;
+    margin: 0 auto 10px;
+    cursor: pointer;
+}
+.form-style-checkout input[type="submit"]:hover {
+    background: #0E86AD; /*#109177*/
+}

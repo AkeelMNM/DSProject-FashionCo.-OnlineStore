@@ -10,6 +10,10 @@ import CreateProductComponent from "./components/seller/CreateProductComponent";
 import ViewProductComponent from "./components/seller/ViewProductComponent";
 import ListProductsComponent from "./components/seller/ListProductsComponent";
 import UpdateProductComponent from "./components/seller/UpdateProductComponent";
+import ViewProducts from "./components/buyer/ViewProducts";
+import ShoppingCart from "./components/buyer/ShoppingCart";
+import Transport from "./components/buyer/Transport";
+import PurchaseHistory from "./components/buyer/PurchaseHistory";
 
 
 class App extends React.Component{
@@ -29,6 +33,10 @@ class App extends React.Component{
                 <Route path="/ListProducts" component={ListProductsComponent} />
                 <Route path="/ViewProducts/:id" component={ViewProductComponent} />
                 <Route path="/UpdateProducts/:id" component={UpdateProductComponent} />
+                <Route path="/ViewProducts" component={ViewProducts}/>
+                <Route path="/ShoppingCart" component={ShoppingCart} />
+                <Route path="/Transport" component={Transport} />
+                <Route path="/PurchaseHistory" component={PurchaseHistory} />
             </Switch>
             <Footer/>
         </Router>

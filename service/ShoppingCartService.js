@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ShoppingCartService_API_BASE_URL = "http://localhost:8080/ShoppingCart/";
+const ShoppingCartService_API_BASE_URL = "http://localhost:8080/shoppingCart/";
 
 /**
  * @author : A.M Zumry

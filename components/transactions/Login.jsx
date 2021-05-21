@@ -39,7 +39,7 @@ class Login extends React.Component{
                 if(type === 'seller'){
                      this.props.history.push("/ListProducts")
                  }else if (type === 'buyer'){
-                     this.props.history.push("/PaymentGateway")//("/ViewProducts")
+                     this.props.history.push("/ViewProducts")
                  }
 
              }else{

@@ -7,7 +7,7 @@ import ViewProductsService from "../../service/ViewProductsService";
 import '../../styles/buyer/ViewProducts.css';
 
 //Images
-import search_icon from 'url:../../images/search_icon.png';
+import search_icon from 'url:../../images/search_icon.jpeg';
 import Cookies from "universal-cookie/es6";
 
 /**
@@ -40,11 +40,11 @@ class ViewProducts extends React.Component{
 
     AddToShopping(event,product) {
         event.preventDefault();
-        // const cookies = new Cookies();
+        const cookies = new Cookies();
+        console.log('im in addToShoppingCart')
 
         let Shopping ={
-            // userId:cookies.get('userID'),
-            userID:"U002",
+            userID:cookies.get('userID'),
             productId:product.id,
             qty:"1"
         }

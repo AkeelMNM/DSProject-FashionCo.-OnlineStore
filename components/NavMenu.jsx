@@ -3,6 +3,7 @@ import "../styles/HeaderFooter.css";
 import shoppingCart from "url:../images/shopping-cart.png"
 import Cookies from "universal-cookie/es6";
 import {withRouter} from "react-router-dom";
+import PurchaseHistory from "./buyer/PurchaseHistory";
 
 /**
  * @author : M.N.M Akeel
@@ -25,11 +26,11 @@ class NavMenu extends React.Component{
 
     renderBuyerMenu(){
         return <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="#news">Purchase History</a></li>
+            <li><a href="/ViewProducts">Home</a></li>
+            <li><a href="/PurchaseHistory">Purchase History</a></li>
             <li><a href="/UserProfile">UserProfile</a></li>
             <button id={'logout'} onClick={event => this.logout(event)}>Logout</button>
-            <a href="#about"><img src={shoppingCart} id={'imgShop'} title={'Shopping Cart'}/></a>
+            <a href="/ShoppingCart"><img src={shoppingCart} id={'imgShop'} title={'Shopping Cart'}/></a>
         </ul>
     }
 
