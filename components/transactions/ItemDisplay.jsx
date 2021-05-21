@@ -10,9 +10,8 @@ import ItemsList from "./items";
 
 export default function ItemDisplay (props){
     const { items } = props;
-
+    let subTotal = 0;
     let total = 0;
-    items.map(item => { total = total + item.totalPrice})
 
         return <div>
             <div className={'item-style-view'}>
@@ -20,7 +19,9 @@ export default function ItemDisplay (props){
 
                     {
                         items.map(item => {
-                            return <ItemsList id={item.itemId.toString()} item={item}/>
+                            subTotal = item.price * item.qty;
+                            total = total + subTotal;
+                            return <ItemsList id={item.id.toString()} item={item} price={subTotal}/>
 
                         })
                     }
@@ -32,7 +33,7 @@ export default function ItemDisplay (props){
                     <tbody>
                     <tr>
                         <td className={'tdNames'}>Sub total</td>
-                        <td><label className={'itemValue'}>${total}</label></td>
+                        <td><label className={'itemValue'}>Rs.{subTotal}</label></td>
                     </tr>
                     <tr>
                         <td className={'tdNames'}>Shipping :</td>
@@ -41,7 +42,7 @@ export default function ItemDisplay (props){
                     <tr><td colSpan={2}></td></tr>
                     <tr>
                         <td className={'tdNames'}><span style={{fontWeight:"bold"}}>Total : </span></td>
-                        <td ><span className={'itemValue'} style={{fontWeight:"bold"}}>${total}</span></td>
+                        <td ><span className={'itemValue'} style={{fontWeight:"bold"}}>Rs.{total}</span></td>
                     </tr>
                     </tbody>
                 </table>

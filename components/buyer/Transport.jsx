@@ -5,6 +5,7 @@ import '../../styles/buyer/Transport.css';
 import ViewProductsService from "../../service/ViewProductsService";
 import Cookies from "universal-cookie/es6";
 import NavMenu from "../NavMenu";
+import ProductService from "../../service/ProductService";
 
 /**
  * @author : A.M Zumry
@@ -27,9 +28,20 @@ class Transport extends Component {
     }
 
     componentDidMount(){
-        TransportService.getTransportByUserId("U002").then(res=>{
-            this.setState({Transport : res.data})
-        })
+        const cookies = new Cookies();
+        const val = cookies.get('userID');
+
+        /**
+         * Checking the User is Login or Not
+         * if user not login it will automatically redirect to login page else it will render the page
+         */
+        if(typeof val === 'undefined'){
+            this.props.history.push('/');
+        }else {
+            TransportService.getTransportByUserId(cookies.get('userType')).then(res => {
+                this.setState({Transport: res.data})
+            })
+        }
     }
 
     Checkout(event){
@@ -45,7 +57,7 @@ class Transport extends Component {
             mobileNumber:this.state.mobileNumber
         }
 
-        /*if(this.state.name === ''){
+/*        if(this.state.name === ''){
             alert('Enter Name.. ');
         }else if(this.state.address === ''){
             alert('Enter Address.. ');
@@ -59,7 +71,7 @@ class Transport extends Component {
         else{
             TransportService.AddTransport(CheckOut).then(res =>{*/
                 this.props.history.push('/PaymentGateway');
-          /*  });
+         /*  });
         }*/
     }
 

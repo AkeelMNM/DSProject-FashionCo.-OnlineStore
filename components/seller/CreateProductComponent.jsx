@@ -3,6 +3,7 @@ import ProductService from '../../service/ProductService';
 import Cookies from "universal-cookie/es6";
 import NavMenu from "../NavMenu";
 import '../../styles/seller/Products.css';
+import ShoppingCartService from "../../service/ShoppingCartService";
 
 class CreateProductComponent extends Component {
     constructor(props){
@@ -29,6 +30,21 @@ class CreateProductComponent extends Component {
         this.saveProduct = this.saveProduct.bind(this);
 
       
+    }
+
+    componentDidMount() {
+        const cookies = new Cookies();
+        const val = cookies.get('userID');
+
+        /**
+         * Checking the User is Login or Not
+         * if user not login it will automatically redirect to login page else it will render the page
+         */
+        if(typeof val === 'undefined'){
+            this.props.history.push('/');
+        }else{
+            return
+        }
     }
 
     saveProduct(e){

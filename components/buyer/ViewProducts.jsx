@@ -9,6 +9,7 @@ import '../../styles/buyer/ViewProducts.css';
 //Images
 import search_icon from 'url:../../images/search_icon.jpeg';
 import Cookies from "universal-cookie/es6";
+import ProductService from "../../service/ProductService";
 
 /**
  * @author : A.M Zumry
@@ -28,10 +29,20 @@ class ViewProducts extends React.Component{
         this.NumberHandling = this.NumberHandling.bind(this);
     }
 
-    componentDidMount(){
-        ViewProductsService.getProducts().then(res=>{
-            this.setState({products : res.data})
-        })
+    componentDidMount(){const cookies = new Cookies();
+        const val = cookies.get('userID');
+
+        /**
+         * Checking the User is Login or Not
+         * if user not login it will automatically redirect to login page else it will render the page
+         */
+        if(typeof val === 'undefined'){
+            this.props.history.push('/');
+        }else {
+            ViewProductsService.getProducts().then(res => {
+                this.setState({products: res.data})
+            })
+        }
     }
 
     NumberHandling(event){

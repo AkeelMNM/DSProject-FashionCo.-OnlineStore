@@ -3,6 +3,7 @@ import NavMenu from "../NavMenu";
 import '../../styles/buyer/ViewProducts.css';
 import Cookies from "universal-cookie/es6";
 import ShoppingCartService from "../../service/ShoppingCartService";
+import ProductService from "../../service/ProductService";
 
 /**
  * @author : A.M Zumry
@@ -21,10 +22,20 @@ class PurchaseHistory  extends React.Component{
     }
 
     componentDidMount(){
-        const cookies = new Cookies;
-        ShoppingCartService.getShoppingCartById(cookies.get('userID')).then(res=>{
-            this.setState({ShoppingCart : res.data})
-        })
+        const cookies = new Cookies();
+        const val = cookies.get('userID');
+
+        /**
+         * Checking the User is Login or Not
+         * if user not login it will automatically redirect to login page else it will render the page
+         */
+        if(typeof val === 'undefined'){
+            this.props.history.push('/');
+        }else {
+            ShoppingCartService.getShoppingCartById(cookies.get('userID')).then(res => {
+                this.setState({ShoppingCart: res.data})
+            })
+        }
     }
 
     NumberHandling(event){

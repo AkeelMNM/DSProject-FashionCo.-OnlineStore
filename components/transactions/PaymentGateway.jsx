@@ -6,34 +6,19 @@ import {Link} from "react-router-dom";
 import MobilePayment from "./MobilePayment";
 import NavMenu from "../NavMenu";
 import Cookies from "universal-cookie/es6";
+import ShoppingCartService from "../../service/ShoppingCartService";
 
 /**
  * @author : M.N.M Akeel
  * Registration Number : IT19153414
  */
 
-const items = [
-    {
-        itemId:1,
-        name:'Shoe',
-        unitPrice:500,
-        qty:2,
-        totalPrice:1000
-    },
-    {
-        itemId:2,
-        name:'Shirt',
-        unitPrice:700,
-        qty:5,
-        totalPrice:3500
-    },
-]
-
 class PaymentGateway extends React.Component{
     constructor(props) {
         super(props);
 
         this.state = {
+            items:[],
             payType:'card'
         }
 
@@ -50,7 +35,9 @@ class PaymentGateway extends React.Component{
         if(typeof val === 'undefined'){
             this.props.history.push('/');
         }else{
-           return;
+            ShoppingCartService.getShoppingCartById(cookies.get('userID')).then(res=>{
+                this.setState({items : res.data})
+            })
         }
     }
 
@@ -82,7 +69,7 @@ class PaymentGateway extends React.Component{
                     }
                 </div>
                 <div id={'div2'}>
-                    <ItemDisplay items={items}/>
+                    <ItemDisplay items={this.state.items}/>
                 </div>
             </div>
         </div>

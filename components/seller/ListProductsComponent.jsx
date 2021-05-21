@@ -3,6 +3,7 @@ import ProductService from '../../service/ProductService';
 import NavMenu from "../NavMenu";
 import Cookies from "universal-cookie/es6";
 import '../../styles/seller/Products.css';
+import ShoppingCartService from "../../service/ShoppingCartService";
 
 
 class ListProductsComponent extends Component {
@@ -36,9 +37,20 @@ class ListProductsComponent extends Component {
 
 
     componentDidMount(){
-        ProductService.getproducts().then(res =>{
-            this.setState({products:res.data});
-        });
+            const cookies = new Cookies();
+            const val = cookies.get('userID');
+
+            /**
+             * Checking the User is Login or Not
+             * if user not login it will automatically redirect to login page else it will render the page
+             */
+            if(typeof val === 'undefined'){
+                this.props.history.push('/');
+            }else{
+                ProductService.getproducts().then(res =>{
+                    this.setState({products:res.data});
+                });
+            }
     }   
 
        

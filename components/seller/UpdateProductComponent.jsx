@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProductService from '../../service/ProductService';
 import '../../styles/seller/Products.css';
+import Cookies from "universal-cookie/es6";
 
 class UpdateProductComponent extends Component {
     constructor(props){
@@ -26,17 +27,30 @@ class UpdateProductComponent extends Component {
     }
 
     componentDidMount(){
-        ProductService.getProducteById(this.state.id).then(res => {
-            let product = res.data;
-            this.setState({productName: product.productName,
-                productBrand: product.productBrand,
-                productCategory : product.productCategory,
-                productPrice: product.productPrice,
-                productSize : product.productSize,
-                discription : product.discription
 
+        const cookies = new Cookies();
+        const val = cookies.get('userID');
+
+        /**
+         * Checking the User is Login or Not
+         * if user not login it will automatically redirect to login page else it will render the page
+         */
+        if(typeof val === 'undefined'){
+            this.props.history.push('/');
+        }else {
+            ProductService.getProducteById(this.state.id).then(res => {
+                let product = res.data;
+                this.setState({
+                    productName: product.productName,
+                    productBrand: product.productBrand,
+                    productCategory: product.productCategory,
+                    productPrice: product.productPrice,
+                    productSize: product.productSize,
+                    discription: product.discription
+
+                });
             });
-        });
+        }
     }
 
     updateProduct(e){

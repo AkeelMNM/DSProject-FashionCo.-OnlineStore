@@ -16,12 +16,24 @@ class ViewProductComponent extends Component {
 
         }
     }
-        componentDidMount(){
-            ProductService.getProducteById(this.state.id).then( res => {
+
+    componentDidMount(){
+        const cookies = new Cookies();
+        const val = cookies.get('userID');
+
+        /**
+         * Checking the User is Login or Not
+         * if user not login it will automatically redirect to login page else it will render the page
+         */
+        if(typeof val === 'undefined'){
+            this.props.history.push('/');
+        }else {
+            ProductService.getProducteById(this.state.id).then(res => {
                 this.setState({products: res.data});
-                
+
             })
         }
+    }
     
     render() {
         const cookies = new Cookies();
