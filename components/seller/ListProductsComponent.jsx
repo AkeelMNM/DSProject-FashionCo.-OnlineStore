@@ -3,7 +3,11 @@ import ProductService from '../../service/ProductService';
 import NavMenu from "../NavMenu";
 import Cookies from "universal-cookie/es6";
 import '../../styles/seller/Products.css';
-import ShoppingCartService from "../../service/ShoppingCartService";
+
+/**
+ * @author : M.A.M Nusky
+ * Registration Number : IT19167442
+ */
 
 
 class ListProductsComponent extends Component {

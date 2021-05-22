@@ -3,6 +3,11 @@ import ProductService from '../../service/ProductService';
 import '../../styles/seller/Products.css';
 import Cookies from "universal-cookie/es6";
 
+/**
+ * @author : M.A.M Nusky
+ * Registration Number : IT19167442
+ */
+
 class UpdateProductComponent extends Component {
     constructor(props){
         super(props)

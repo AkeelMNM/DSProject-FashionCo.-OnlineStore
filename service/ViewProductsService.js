@@ -1,7 +1,18 @@
 import axios from 'axios';
 
-const ViewProductsService_API_BASE_URL = "http://localhost:8080/shoppingCart/";
-const Search_API_BASE_URL = "http://localhost:8080/search/get/";
+/**
+ * this URL is to communicate directly with the backend
+ */
+//const ViewProductsService_API_BASE_URL = "http://localhost:8080/shoppingCart/";
+//const Search_API_BASE_URL = "http://localhost:8080/search/get/";
+
+/**
+ * Configure the ASSIGNED_IP_ADDRESS according to your IP Address
+ */
+const ASSIGNED_IP_ADDRESS = 'http://172.18.1.33:8280';
+const ViewProductsService_API_BASE_URL = ASSIGNED_IP_ADDRESS + "/onlinestore_shoppingcart/shoppingCart/";
+const Search_API_BASE_URL = ASSIGNED_IP_ADDRESS + "onlinestore_shoppingcart/search/get/";
+
 
 /**
  * @author : A.M Zumry

@@ -5,6 +5,12 @@ import NavMenu from "../NavMenu";
 import '../../styles/seller/Products.css';
 import ShoppingCartService from "../../service/ShoppingCartService";
 
+/**
+ * @author : M.A.M Nusky
+ * Registration Number : IT19167442
+ */
+
+
 class CreateProductComponent extends Component {
     constructor(props){
         super(props)

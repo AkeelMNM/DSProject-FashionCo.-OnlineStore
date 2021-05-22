@@ -4,6 +4,11 @@ import '../../styles/seller/Products.css';
 import Cookies from "universal-cookie/es6";
 import NavMenu from "../NavMenu";
 
+/**
+ * @author : M.A.M Nusky
+ * Registration Number : IT19167442
+ */
+
 class ViewProductComponent extends Component {
 
     constructor(props){

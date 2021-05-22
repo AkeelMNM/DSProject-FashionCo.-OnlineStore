@@ -29,7 +29,8 @@ class ViewProducts extends React.Component{
         this.NumberHandling = this.NumberHandling.bind(this);
     }
 
-    componentDidMount(){const cookies = new Cookies();
+    componentDidMount(){
+        const cookies = new Cookies();
         const val = cookies.get('userID');
 
         /**

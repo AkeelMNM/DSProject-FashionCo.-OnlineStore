@@ -5,12 +5,17 @@ import axios from "axios";
  * Registration Number : IT19153414
  */
 
-const USER_AUTH_API_BASE_URL = "http://localhost:8080/users/";
 
-const header = {'Access-Control-Allow-Origin': 'http://localhost:8080',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type'
-}
+/**
+ * this URL is to communicate directly with the backend
+ */
+//const USER_AUTH_API_BASE_URL = "http://localhost:8080/users/";
+
+/**
+ * Configure the ASSIGNED_IP_ADDRESS according to your IP Address
+ */
+const ASSIGNED_IP_ADDRESS = 'http://172.18.1.33:8280';
+const USER_AUTH_API_BASE_URL = ASSIGNED_IP_ADDRESS + "/onlinestore_users/users/";
 
 class UserAuthService{
 
