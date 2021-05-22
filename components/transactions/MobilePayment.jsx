@@ -44,7 +44,9 @@ class MobilePayment extends React.Component{
             PaymentGatewayService.MobilePayment(Payment)
                 .then(res =>{
                     alert(res);
+                    this.props.history.push('/ViewProducts')
                 })
+
         }
     }
 

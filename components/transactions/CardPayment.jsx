@@ -42,7 +42,9 @@ class CardPayment extends React.Component{
             PaymentGatewayService.CardPayment(Payment)
                 .then(res =>{
                     alert(res);
+                    this.props.history.push('/ViewProducts')
                 })
+
         }
     }
 

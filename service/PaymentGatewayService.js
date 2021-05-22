@@ -13,7 +13,7 @@ import axios from "axios";
 /**
  * Configure the ASSIGNED_IP_ADDRESS according to your IP Address
  */
-const ASSIGNED_IP_ADDRESS = 'http://172.17.221.209:8280';
+const ASSIGNED_IP_ADDRESS = 'http://172.18.1.33:8280';
 const PAYMENT_GATEWAY_API_BASE_URL = ASSIGNED_IP_ADDRESS + "/onlinestore_payment/payments/";
 
 class PaymentGatewayService{

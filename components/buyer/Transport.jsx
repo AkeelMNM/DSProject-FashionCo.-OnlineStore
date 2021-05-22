@@ -57,7 +57,7 @@ class Transport extends Component {
             mobileNumber:this.state.mobileNumber
         }
 
-/*        if(this.state.name === ''){
+       if(this.state.name === ''){
             alert('Enter Name.. ');
         }else if(this.state.address === ''){
             alert('Enter Address.. ');
@@ -69,10 +69,10 @@ class Transport extends Component {
             alert('Enter Mobile number.. ');
         }
         else{
-            TransportService.AddTransport(CheckOut).then(res =>{*/
+            TransportService.AddTransport(CheckOut).then(res =>{
                 this.props.history.push('/PaymentGateway');
-         /*  });
-        }*/
+          });
+        }
     }
 
     onChange(event){
