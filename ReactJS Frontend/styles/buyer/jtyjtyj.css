@@ -1,0 +1,131 @@
+
+/*
+**************************************************************
+  @author : A.M Zumry
+  Registration Number : IT19175126
+************************************************************
+*/
+
+/*------------------------
+Shopping Cart Css
+------------------------*/
+
+.cart-container {
+    width: 88%;
+    display: inline-block;
+    margin-left: 6%;
+}
+
+.cart-container .cart-page{
+    margin-top: 160px;
+    margin-bottom: 25px;
+}
+
+.cart-page .Tbl-ShoppingCart{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cart-page th {
+    text-align: left;
+    padding: 5px;
+    color: #fff;
+    background: #ff523b;
+    font-weight: normal;
+}
+
+.cart-page td {
+    padding: 10px 5px;
+}
+
+.cart-page td input {
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+.cart-page td a {
+    color: #ff523b;
+    font-size: 12px;
+}
+
+.cart-page td img {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.total-price {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.total-price table {
+    border-top: 3px solid #ff523b;
+    width: 100%;
+    max-width: 400px;
+}
+
+.Sc-subtotal {
+    text-align: right;
+}
+
+th:last-child {
+    text-align: right;
+}
+
+.cart-remove-btn{
+    color: #FFF;
+    background: #13A5D5;
+    border:none;
+    position: relative;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.Sc-price{
+    margin-top: 3px;
+    margin-bottom: 8px;
+}
+
+ .Sc-name {
+     margin-top: 3px;
+     margin-bottom: 8px;
+ }
+
+ .Sc-price {
+     margin-block: 12px;
+     margin-top: -2px;
+ }
+
+.cart-remove-btn:hover{
+    background: #de2c2c;
+}
+
+.total-price .buy-btn {
+    position: relative;
+    border-radius: 3px;
+    display: block;
+    text-align: center;
+    font-style: normal;
+    padding: 9px 29px 8px 29px;
+    color: #ffffff;
+    background: #13A5D5;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid #13A5D5;
+    border-width: 1px 1px 3px;
+    margin: 12px 90px 25px;
+    cursor: pointer;
+}
+
+.total-price .buy-btn:hover{
+    background: #0E86AD;
+}
