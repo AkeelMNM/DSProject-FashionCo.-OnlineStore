@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/onlinestore_product" name="OnlineStoreProductAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/seller/products">
+        <inSequence>
+            <log description="GetAll Product Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore ProductService"/>
+            </log>
+            <send>
+                <endpoint key="GetAllProductEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/seller/products">
+        <inSequence>
+            <log description="Add Product Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore ProductService"/>
+            </log>
+            <send>
+                <endpoint key="AddProductsEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/seller/products/{id}">
+        <inSequence>
+            <log description="GetProductById Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore ProductService"/>
+            </log>
+            <send>
+                <endpoint key="GetProductByIdEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="PUT" uri-template="/seller/products/{id}">
+        <inSequence>
+            <log description="Update Product Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore ProductService"/>
+            </log>
+            <send>
+                <endpoint key="UpdateProductEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="DELETE" uri-template="/seller/products/{id}">
+        <inSequence>
+            <log description="Delete Product Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore ProductService"/>
+            </log>
+            <send>
+                <endpoint key="RemoveProductEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/seller/fileupload">
+        <inSequence>
+            <log description="ProductImg Upload Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore ProductService"/>
+            </log>
+            <send>
+                <endpoint key="ProductImgUpEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

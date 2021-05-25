@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/onlinestore_shoppingcart" name="OnlineStoreShoppingCartAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/shoppingCart/get/{id}">
+        <inSequence>
+            <log description="Get ShoppingCart Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore ShoppingCart Service"/>
+            </log>
+            <send>
+                <endpoint key="GetShoppingCartEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/shoppingCart/add">
+        <inSequence>
+            <log description="Add ShoppingCart Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore ShoppingCart Service"/>
+            </log>
+            <send>
+                <endpoint key="AddShoppingCartEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/shoppingCart/getProducts/{id}">
+        <inSequence>
+            <log description="GetUser ShoppingCart Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore ShoppingCart Service"/>
+            </log>
+            <send>
+                <endpoint key="GetShoppingCartByUserEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="DELETE" uri-template="/shoppingCart/removeProducts/{id}">
+        <inSequence>
+            <log description="Remove ShoppingCart Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore ShoppingCart Service"/>
+            </log>
+            <send>
+                <endpoint key="RemoveShoppingCartEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/search/get/{name}">
+        <inSequence>
+            <log description="Product Search Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore ProductSearch Service"/>
+            </log>
+            <send>
+                <endpoint key="ProductSearchEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/onlinestore_payment" name="OnlineStorePaymentAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/payments/cardPayment">
+        <inSequence>
+            <log description="CardPaymentGateway Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore PaymentGateway Service"/>
+            </log>
+            <send>
+                <endpoint key="CardPaymentEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/payments/mobilePayment">
+        <inSequence>
+            <log description="MobilePaymentGateway Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore PaymentGateway Service"/>
+            </log>
+            <send>
+                <endpoint key="MobilePaymentEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

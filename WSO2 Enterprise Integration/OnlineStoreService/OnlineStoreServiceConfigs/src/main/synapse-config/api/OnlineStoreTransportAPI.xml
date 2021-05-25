@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/onlinestore_transport" name="OnlineStoreTransportAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/transport/add">
+        <inSequence>
+            <log description="Add Transport Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore Transport Service"/>
+            </log>
+            <send>
+                <endpoint key="AddTransportEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/transport/getTransport/{id}">
+        <inSequence>
+            <log description="Get Transport Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore Transport Service"/>
+            </log>
+            <send>
+                <endpoint key="GetTransportEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

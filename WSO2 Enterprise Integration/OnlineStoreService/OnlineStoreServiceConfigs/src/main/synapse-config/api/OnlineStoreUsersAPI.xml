@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/onlinestore_users" name="OnlineStoreUsersAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/users/login">
+        <inSequence>
+            <log description="Login Request Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore Users Service"/>
+            </log>
+            <send>
+                <endpoint key="LoginEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/users/register">
+        <inSequence>
+            <log description="Register Request Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore Users Service"/>
+            </log>
+            <send>
+                <endpoint key="RegisterEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="PUT" uri-template="/users/update/{id}">
+        <inSequence>
+            <log description="Update User Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore Users Service"/>
+            </log>
+            <send>
+                <endpoint key="UpdateUserEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/users/getUser/{id}">
+        <inSequence>
+            <log description="Get Users Log" level="custom">
+                <property name="message" value="Welcome to OnlineStore Users Service"/>
+            </log>
+            <send>
+                <endpoint key="GetUserEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="OPTIONS" uri-template="/*">
+        <inSequence>
+            <filter regex="OPTIONS" source="get-property('axis2', 'HTTP_METHOD')">
+                <then>
+                    <property name="Access-Control-Request-Headers" scope="transport" type="STRING" value="authorization,content-type"/>
+                    <property name="Access-Control-Allow-Headers" scope="transport" type="STRING" value="authorization,Access-Control-Allow-Origin,Content-Type,X-Requested-With,Accept"/>
+                    <property name="Access-Control-Allow-Methods" scope="transport" type="STRING" value="GET,POST,PUT,DELETE,OPTIONS"/>
+                    <property name="Access-Control-Allow-Origin" scope="transport" type="STRING" value="*"/>
+                    <property name="RESPONSE" scope="default" type="STRING" value="true"/>
+                    <respond/>
+                </then>
+                <else/>
+            </filter>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>
